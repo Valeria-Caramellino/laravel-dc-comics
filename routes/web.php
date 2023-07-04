@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\ComicController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class,'index']);
+Route::get('/',[ComicController::class,'index'] )->name('home');
 
-Route::get('/otherpage',[PageController::class,'other']);
+Route::resource('comics',ComicController::class);
+
+
+
+/*Route::get('/otherpage',[PageController::class,'other']);*/
