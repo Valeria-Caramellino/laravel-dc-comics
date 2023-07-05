@@ -3,7 +3,11 @@
 @section('content')
 <div class="container my-3">
     <h1>Pagina home!</h1>
+     <div>
+            <a class="btn btn-primary" href="{{ route("comics.create") }}">Aggiungi un nuovo prodotto</a>
+    </div>
     <div class="row g-4">
+       
         <div class="d-flex flex-wrap col-10 mx-auto">
             
             
