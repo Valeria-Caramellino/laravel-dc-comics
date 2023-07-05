@@ -12,7 +12,7 @@
                 <input class="form-control" type="text" name="title">
 
                 <label for="name">Description</label>
-                <input class="form-control" type="text-area" name="description">
+                <textarea name="description" class="form-control" cols="30" rows="5"></textarea>
 
                 <label for="name">Thumb</label>
                 <input class="form-control" type="text" name="thumb">
