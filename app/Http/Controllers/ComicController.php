@@ -15,20 +15,14 @@ class ComicController extends Controller
     public function index()
     {
         $links = config('dati.someLinksTestata');
-           
+        $blueFooter= config('dati.SectionBlueFooter');
+        $stringFooter=config('dati.SectionStringFooter');
+        $miniFooter = config('dati.SectionMiniFooter');
 
         $comics = Comic::all();
-        return view("comics.index", compact('comics','links'));
+        return view("comics.index", compact('comics','links','blueFooter','stringFooter','miniFooter'));
     }
     /*
-    $data = [
-        
-        'links' => config('dati.someLinksTestata'),
-        'footerBlue' => config('dati.SectionBlueFooter'),
-        
-        'SectionStringFooter' => config('dati.SectionStringFooter'),
-        
-    ];*/
     /**
      * Show the form for creating a new resource.
      *
@@ -36,8 +30,11 @@ class ComicController extends Controller
      */
     public function create()
     {
+        $blueFooter= config('dati.SectionBlueFooter');
+        $stringFooter=config('dati.SectionStringFooter');
+        $miniFooter = config('dati.SectionMiniFooter');
         $links = config('dati.someLinksTestata');
-        return view("comics.create",compact('links'));
+        return view("comics.create",compact('links','blueFooter','stringFooter','miniFooter'));
     }
 
     /**
@@ -74,9 +71,12 @@ class ComicController extends Controller
      */
     public function show($id)
     {
+        $blueFooter= config('dati.SectionBlueFooter');
+        $stringFooter=config('dati.SectionStringFooter');
+        $miniFooter = config('dati.SectionMiniFooter');
         $links = config('dati.someLinksTestata');
         $comic = Comic::findOrFail($id);
-        return view("comics.show", compact('comic','links'));
+        return view("comics.show", compact('comic','links','blueFooter','stringFooter','miniFooter'));
     }
 
     /**
@@ -88,9 +88,12 @@ class ComicController extends Controller
     public function edit($id)
     
     {
+        $blueFooter= config('dati.SectionBlueFooter');
+        $stringFooter=config('dati.SectionStringFooter');
         $links = config('dati.someLinksTestata');
+        $miniFooter = config('dati.SectionMiniFooter');
         $comic = Comic::findOrFail($id);
-        return view("comics.edit", compact('comic','links'));
+        return view("comics.edit", compact('comic','links','blueFooter','stringFooter','miniFooter'));
         
     }
 
@@ -128,6 +131,7 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
+        
         $comic = Comic::findOrFail($id);
         $comic->delete();
 

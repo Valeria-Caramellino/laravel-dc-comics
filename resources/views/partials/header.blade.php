@@ -1,5 +1,5 @@
 <header>
-    <div class="container mt-4">
+    <div class="container mt-4 bg-black">
       <div class="row justify-content-around">
 
         <!--sezione sinistra-->

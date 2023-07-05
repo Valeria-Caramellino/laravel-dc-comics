@@ -113,5 +113,22 @@ return [
             ],
         ],
     ],
+    'SectionMiniFooter'=>[
+        [
+            'social'=>"resources/img/footer-facebook.png",
+        ],
+        [
+            'social'=>"resources/img/footer-twitter.png",
+        ],
+        [
+            'social'=>"resources/img/footer-youtube.png",
+        ],
+        [
+            'social'=>"resources/img/footer-pinterest.png",
+        ],
+        [
+            'social'=>"resources/img/footer-periscope.png",
+        ],
+    ]
     
 ];

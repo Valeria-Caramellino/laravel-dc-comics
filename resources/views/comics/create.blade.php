@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-3">
+<div class="container bg-black">
     <div class="row">
         <h1 class="text-center">Crea nuovo prodotto</h1>
     </div>
@@ -41,7 +41,7 @@
                 </div>
                 
                 <div class="col-3">
-                    <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
+                    <input class="form-control mt-4 btn" type="submit" value="Invia">
                 </div>
               
              </form>

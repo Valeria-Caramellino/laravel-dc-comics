@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-3">
+<div class="container bg-black">
     <div class="row">
         <h1 class="text-center">Modifica campi:</h1>
     </div>
@@ -40,7 +40,7 @@
                 <label for="name">Writers</label>
                 <input class="form-control" type="text" name="writers" value= "{{$comic->writers}}">
 
-                <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
+                <input class="form-control mt-4 btn" type="submit" value="Invia">
              </form>
         </div>
     </div>
