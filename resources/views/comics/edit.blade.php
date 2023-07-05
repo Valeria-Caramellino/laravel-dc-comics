@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="container my-3">
-    <h1>Pagina Edit</h1>
-    <div class="row g-4 py-4">
-        <div class="col">
+    <div class="row">
+        <h1 class="text-center">Modifica campi:</h1>
+    </div>
+    
+    <div class="row justify-content-center py-4">
+        <div class="col-8">
             <form action="{{ route('comics.update', $comic->id) }}" method="post">
                 @csrf
                 

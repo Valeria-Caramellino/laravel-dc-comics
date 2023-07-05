@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-3">
-    <h1>Pagina home!</h1>
-     <div>
-            <a class="btn btn-primary" href="{{ route("comics.create") }}">Aggiungi un nuovo prodotto</a>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center py-4">Lista Fumetti</h1>
     </div>
-    <div class="row g-4">
+    
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <a class="btn btn-primary" href="{{ route("comics.create") }}">Aggiungi un nuovo prodotto alla lista</a>
+        </div>
+        
+    </div>
+    <div class="row">
        
         <div class="d-flex flex-wrap col-10 mx-auto">
             

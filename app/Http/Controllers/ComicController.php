@@ -14,10 +14,21 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
-        return view("comics.index", compact('comics'));
-    }
+        $links = config('dati.someLinksTestata');
+           
 
+        $comics = Comic::all();
+        return view("comics.index", compact('comics','links'));
+    }
+    /*
+    $data = [
+        
+        'links' => config('dati.someLinksTestata'),
+        'footerBlue' => config('dati.SectionBlueFooter'),
+        
+        'SectionStringFooter' => config('dati.SectionStringFooter'),
+        
+    ];*/
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +36,8 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view("comics.create");
+        $links = config('dati.someLinksTestata');
+        return view("comics.create",compact('links'));
     }
 
     /**
@@ -62,9 +74,9 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        
+        $links = config('dati.someLinksTestata');
         $comic = Comic::findOrFail($id);
-        return view("comics.show", compact('comic'));
+        return view("comics.show", compact('comic','links'));
     }
 
     /**
@@ -74,9 +86,11 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+    
     {
+        $links = config('dati.someLinksTestata');
         $comic = Comic::findOrFail($id);
-        return view("comics.edit", compact('comic'));
+        return view("comics.edit", compact('comic','links'));
         
     }
 
