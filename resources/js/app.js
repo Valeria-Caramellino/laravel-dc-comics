@@ -12,3 +12,6 @@ import * as bootstrap from 'bootstrap'
 //Informo Vite di processare le immagini presenti in /resources/img
 //Documentazione: https://laravel.com/docs/9.x/vite#blade-processing-static-assets
 // import.meta.glob(['../img/**'])
+
+console.log('ciao');
+

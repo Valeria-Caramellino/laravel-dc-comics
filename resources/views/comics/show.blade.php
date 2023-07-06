@@ -11,10 +11,10 @@
             <a href="{{route('home')}}" class="btn">Torna alla pagina proncipale</a>
             <a href="{{route('comics.edit',$comic->id)}}" class="btn">Modifica campo</a>
             
-            <form action="{{route('comics.destroy',$comic->id)}}" method="POST">
+            <form id="cancForm" action="{{route('comics.destroy',$comic->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="Cancella il prodotto" class="btn">
+                <input onclick="confermaEliminazione()" type="submit" value="Cancella il prodotto" class="btn">
 
             </form>
         </div>
@@ -52,4 +52,12 @@
                 
     </div>
 </div>
+<script>
+    function confermaEliminazione(){
+    let risp = confirm("Sicuro di voler eliminare il prodotto?");
+    if(risp){
+        document.getElementById("cancForm").onsubmit();
+    }
+}
+</script>
 @endsection
