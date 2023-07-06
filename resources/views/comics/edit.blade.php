@@ -13,34 +13,68 @@
                 
                 @method('PUT')
 
-                <label for="name">Title</label>
-                <input class="form-control" type="text" name="title" value="{{$comic->title}}">
+                <div class="col-12">
 
-                <label for="name">Description</label>
-                <textarea name="description" class="form-control" cols="30" rows="5">{{$comic->description}}</textarea>
+                    <label class="py-2">Title</label>
+                    <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old("title") ?? $comic->title}}">
+                    @error("title")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Thumb</label>
-                <input class="form-control" type="text" name="thumb" value= "{{$comic->thumb}}">
 
-                <label for="name">Price</label>
-                <input class="form-control" type="text" name="price" value= "{{$comic->price}}">
+                    <label class="py-2">Description</label>
+                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" cols="30" rows="5">{{ old("description") ?? $comic->description}}</textarea>
+                    @error("description")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Series</label>
-                <input class="form-control" type="text" name="series" value= "{{$comic->series}}">
+                    <label class="py-2">Thumb</label>
+                    <input class="form-control @error('thumb') is-invalid @enderror" type="text" name="thumb" value="{{ old("thumb") ?? $comic->thumb }}">
+                    @error("thumb")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Sale_date</label>
-                <input class="form-control" type="date" name="sale_date" value= "{{$comic->sale_date}}">
+                    <label class="py-2">Price</label>
+                    <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" value="{{ old("price") ?? $comic->price}}">
+                    @error("price")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Type</label>
-                <input class="form-control" type="text" name="type" value= "{{$comic->type}}">
+                    <label class="py-2">Series</label>
+                    <input class="form-control @error('series') is-invalid @enderror" type="text" name="series" value="{{ old("series") ?? $comic->series}}">
+                    @error("series")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Artists</label>
-                <input class="form-control" type="text" name="artists" value= "{{$comic->artists}}">
+                    <label class="py-2">Sale_date</label>
+                    <input class="form-control @error('sale_date') is-invalid @enderror" type="date" name="sale_date" value="{{ old("sale_date") ?? $comic->sale_date }}">
+                    @error("sale_date")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <label for="name">Writers</label>
-                <input class="form-control" type="text" name="writers" value= "{{$comic->writers}}">
+                    <label class="py-2">Type</label>
+                    <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" value="{{ old("type") ?? $comic->type }}">
+                    @error("type")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
 
-                <input class="form-control mt-4 btn" type="submit" value="Invia">
+                    <label class="py-2">Artists</label>
+                    <input class="form-control @error('artists') is-invalid @enderror" type="text" name="artists" value="{{ old("artists") ?? $comic->artists }}">
+                    @error("artists")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+
+                    <label class="py-2">Writers</label>
+                    <input class="form-control @error('writers') is-invalid @enderror" type="text" name="writers" value="{{ old("writers") ?? $comic->writers }}">
+                    @error("writers")
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+
+                </div>
+                
+                <div class="col-3">
+                    <input class="form-control mt-4 btn" type="submit" value="Invia">
+                </div>
              </form>
         </div>
     </div>
