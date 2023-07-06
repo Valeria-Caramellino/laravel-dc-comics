@@ -39,7 +39,8 @@
                     <p> <span>Type:</span>  {{$comic->type}}</p>
                 </div>
                 <div class="d-flex col">
-                    <p class="px-2"> <span>Artisti:</span>  {{$comic->artists}}</p>
+                    <p class="px-2"> <span>Artisti:</span>{{$comic->artists}}
+                   </p>
                     <p class="px-2"><span>Scrittori: </span> {{$comic->writers}}</p>
                 </div>
                 
