@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -38,59 +39,16 @@ class ComicController extends Controller
         return view("comics.create",compact('links','blueFooter','stringFooter','miniFooter'));
     }
 
-    /**funzione di validazione */
-    private function validateComic($data) {
-
-        $validator = Validator::make($data, [
-            "title" => "required|min:2|max:255",
-            "description" => "max:65535",
-            "thumb" => "url|max:65535",
-            "price" => "required|min:2|max:255",
-            "series" => "required|min:3|max:255",
-            "sale_date" => "required|date",
-            "type" => "required|min:3|max:50",
-            "artists" => "required|min:2|max:255",
-            "writers" => "required|min:2|max:255",
-        ], [
-            "title.required" => "Il titolo è obbligatorio",
-            "title.min" => "Il titolo deve essere almeno di :min caratteri",
-            "title.max"=> "Il titolo deve avere meno di :max caratteri",
-            "description.max"=>"La descrizione non pò contenere piu di :max caratteri",
-            "thumb.url"=>"url non valido",
-            "thumb.max"=>"La descrizione non pò contenere piu di :max caratteri",
-            "price.required" => "Il price è obbligatorio",
-            "price.min" => "Il price deve essere almeno di :min caratteri",
-            "price.max"=> "Il price deve avere meno di :max caratteri",
-            "series.required" => "La serie è obbligatorio",
-            "series.min" => "La serie deve essere almeno di :min caratteri",
-            "series.max"=> "La serie deve avere meno di :max caratteri",
-            "sale_date.required"=>"La data è obbligatoria",
-            "sale_date.date"=>"La data deve avere un formato data",
-            "type.required" => "Il type è obbligatorio",
-            "type.min" => "Il type deve essere almeno di :min caratteri",
-            "type.max"=> "Il type deve avere meno di :max caratteri",
-            "artists.required" => "Artists è obbligatorio",
-            "artists.min" => "Artists deve essere almeno di :min caratteri",
-            "artists.max" => "Artists deve essere meno di :max caratteri",
-            "writers.required" => "Writers è obbligatorio",
-            "writers.min" => "Writers deve essere almeno di :min caratteri",
-            "writers.max" => "Writers deve essere meno di :max caratteri",
-
-        ])->validate();
-
-        return $validator;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        /**qui uso la funzione */
-        $data = $this->validateComic( $request->all() );
+        /**qui uso la funzione dello store */
+        $data = $request->validated();
         
         $newProduct = new Comic();
 
@@ -153,11 +111,11 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateComicRequest $request, $id)
     {  
         $comic = Comic::findOrFail($id);
         
-        $data = $this->validateComic( $request->all() );
+        $data = $request->validated();
       
         $comic->fill( $data );
         /*
