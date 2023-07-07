@@ -93,6 +93,9 @@ class ComicController extends Controller
         $data = $this->validateComic( $request->all() );
         
         $newProduct = new Comic();
+
+        $newProduct->fill( $data );
+        /*
         $newProduct->title = $data['title'];
         $newProduct->description = $data['description'];
         $newProduct->thumb = $data['thumb'];
@@ -102,6 +105,7 @@ class ComicController extends Controller
         $newProduct->type = $data['type'];
         $newProduct->artists = $data['artists'];
         $newProduct->writers = $data['writers'];
+        */
         $newProduct->save();
         
         return redirect()->route('comics.show', $newProduct->id);
@@ -155,6 +159,8 @@ class ComicController extends Controller
         
         $data = $this->validateComic( $request->all() );
       
+        $comic->fill( $data );
+        /*
         $comic->title = $data['title'];
         $comic->description = $data['description'];
         $comic->thumb = $data['thumb'];
@@ -164,6 +170,7 @@ class ComicController extends Controller
         $comic->type = $data['type'];
         $comic->artists = $data['artists'];
         $comic->writers = $data['writers'];
+        */
         $comic->update();
 
         return redirect()->route('comics.show', $comic->id);
