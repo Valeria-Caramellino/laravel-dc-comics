@@ -44,7 +44,7 @@ class ComicController extends Controller
         $validator = Validator::make($data, [
             "title" => "required|min:2|max:255",
             "description" => "max:65535",
-            "thumb" => "max:65535",
+            "thumb" => "url|max:65535",
             "price" => "required|min:2|max:255",
             "series" => "required|min:3|max:255",
             "sale_date" => "required|date",
@@ -56,6 +56,7 @@ class ComicController extends Controller
             "title.min" => "Il titolo deve essere almeno di :min caratteri",
             "title.max"=> "Il titolo deve avere meno di :max caratteri",
             "description.max"=>"La descrizione non pò contenere piu di :max caratteri",
+            "thumb.url"=>"url non valido",
             "thumb.max"=>"La descrizione non pò contenere piu di :max caratteri",
             "price.required" => "Il price è obbligatorio",
             "price.min" => "Il price deve essere almeno di :min caratteri",
